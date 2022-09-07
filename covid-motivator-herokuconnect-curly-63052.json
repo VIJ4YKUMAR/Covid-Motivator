@@ -1,0 +1,19 @@
+{
+    "mappings": [],
+    "connection": {
+        "app_name": "covid-motivator",
+        "organization_id": null,
+        "exported_at": "2022-09-04T04:21:58.362189+00:00",
+        "features": {
+            "disable_bulk_writes": false,
+            "poll_db_no_merge": true,
+            "poll_external_ids": false,
+            "rest_count_only": false,
+            "ucs_basic_collation_index": true
+        },
+        "api_version": "55.0",
+        "name": "",
+        "logplex_log_enabled": false
+    },
+    "version": 1
+}
