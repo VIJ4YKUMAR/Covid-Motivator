@@ -1,3 +1,4 @@
+from crypt import methods
 import imp
 from flask import Flask
 from flask import jsonify
@@ -14,26 +15,27 @@ def hello_world():
     return "Hello World!"
 
 
-@app.route('/my_app')
+@app.route('/my_app', methods= ['POST', 'GET'])
 def my_app():
     conn = None
-    try:
-        conn = psycopg2.connect("dbname=dffq9f51m6tqk1 user=whndlakocngjjh password=b66e723bad5ac79859e70ebf32ff19524bd5e2641e156e8e5bdfddcb5a21710a host=ec2-44-205-63-142.compute-1.amazonaws.com")
-        cur = conn.cursor()
-        user = request.args.get('message')
-        sql = "INSERT INTO quotes(motivational_message, created_at) VALUES(%s, now())"
-        cur.execute(sql, (user,))
-        conn.commit()
-        cur.close()
+    if request.method == 'POST':
+        try:
+            conn = psycopg2.connect("dbname=dffq9f51m6tqk1 user=whndlakocngjjh password=b66e723bad5ac79859e70ebf32ff19524bd5e2641e156e8e5bdfddcb5a21710a host=ec2-44-205-63-142.compute-1.amazonaws.com")
+            cur = conn.cursor()
+            user = request.args.post('message')
+            sql = "INSERT INTO quotes(motivational_message, created_at) VALUES(%s, current_timestamp)"
+            cur.execute(sql, (user,))
+            conn.commit()
+            cur.close()
 
-    except(Exception, psycopg2.DatabaseError) as error:
-        print(error)
+        except(Exception, psycopg2.DatabaseError) as error:
+            print(error)
     
-    finally:
-        if conn is not None:
-            conn.close()
-            print("connection closed")
-        return jsonify([])
+        finally:
+            if conn is not None:
+                conn.close()
+                print("connection closed")
+            return jsonify([])
 
 @app.route('/get_messages')
 def get_messages():
@@ -64,7 +66,4 @@ def get_messages():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
-
 
