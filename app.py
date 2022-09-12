@@ -15,16 +15,17 @@ def hello_world():
     return "Hello World!"
 
 
-@app.route('/my_app', methods= ['POST', 'GET'])
+@app.route('/my_app', methods= ['POST'])
 def my_app():
     conn = None
     if request.method == 'POST':
         try:
             conn = psycopg2.connect("dbname=dffq9f51m6tqk1 user=whndlakocngjjh password=b66e723bad5ac79859e70ebf32ff19524bd5e2641e156e8e5bdfddcb5a21710a host=ec2-44-205-63-142.compute-1.amazonaws.com")
             cur = conn.cursor()
-            user = request.args.post('message')
+            data = request.get_json()
+            motivational_message = data.message
             sql = "INSERT INTO quotes(motivational_message, created_at) VALUES(%s, current_timestamp)"
-            cur.execute(sql, (user,))
+            cur.execute(sql, (motivational_message,))
             conn.commit()
             cur.close()
 
