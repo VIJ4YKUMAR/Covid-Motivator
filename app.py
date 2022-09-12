@@ -21,7 +21,7 @@ def my_app():
         conn = psycopg2.connect("dbname=dffq9f51m6tqk1 user=whndlakocngjjh password=b66e723bad5ac79859e70ebf32ff19524bd5e2641e156e8e5bdfddcb5a21710a host=ec2-44-205-63-142.compute-1.amazonaws.com")
         cur = conn.cursor()
         user = request.args.get('message')
-        sql = "INSERT INTO quotes(motivational_message) VALUES(%s)"
+        sql = "INSERT INTO quotes(motivational_message, created_at) VALUES(%s, now())"
         cur.execute(sql, (user,))
         conn.commit()
         cur.close()
