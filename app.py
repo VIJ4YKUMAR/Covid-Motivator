@@ -44,7 +44,7 @@ def get_messages():
         conn = psycopg2.connect("dbname=dffq9f51m6tqk1 user=whndlakocngjjh password=b66e723bad5ac79859e70ebf32ff19524bd5e2641e156e8e5bdfddcb5a21710a host=ec2-44-205-63-142.compute-1.amazonaws.com")
         #conn = psycopg2.connect("dbname=covid_motiv user=vijay password=ryzen host=localhost")
         cursor = conn.cursor()
-        sql = "select * from quotes where msg_status = 'approved';"
+        sql = "select * from quotes where msg_status = 'not approved';"
         cursor.execute(sql)
         rows = cursor.fetchall()
         rowarray_list = []
