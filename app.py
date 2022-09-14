@@ -1,3 +1,4 @@
+from unicodedata import name
 from flask import Flask
 from flask import jsonify
 from flask_cors import CORS
@@ -22,9 +23,10 @@ def my_app():
             #conn = psycopg2.connect("dbname=covid_motiv user=vijay password=ryzen host=localhost")
             data = request.get_json()
             motivational_message = data['message']
+            name = data['u_name']
             cur = conn.cursor()
-            sql = 'INSERT INTO quotes(motivational_message, created_at) VALUES(%s, now())'
-            cur.execute(sql, (motivational_message,))
+            sql = 'INSERT INTO quotes(motivational_message, created_at, name) VALUES(%s, now(), %s)'
+            cur.execute(sql, (motivational_message,name,))
             conn.commit()
             cur.close()
 
@@ -49,7 +51,7 @@ def get_messages():
         rows = cursor.fetchall()
         rowarray_list = []
         for row in rows:
-            t = { 'message': row[1], 'id': row[0]}
+            t = { 'id': row[0], 'message': row[1], 'name':row[5]}
             rowarray_list.append(t)
         conn.commit()
         cursor.close()
