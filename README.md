@@ -1,7 +1,5 @@
 <h1 align="center">Welcome to covid-motivator Backend 👋</h1>
 <p>
- src="https://img.shields.io/twitter/follow/https:\/\/twitter.com\/vij4y1?t=JfLJABVAd9nbp-8ORJ4pKQ&s=09.svg?style=social" />
-  </a>
 </p>
 
 > API's that handles the request received from the Covid-Motivator Frontend and handles Database operations
