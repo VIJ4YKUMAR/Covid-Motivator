@@ -1,7 +1,6 @@
 <h1 align="center">Welcome to covid-motivator Backend 👋</h1>
 <p>
-  <a href="https://twitter.com/https:\/\/twitter.com\/vij4y1?t=JfLJABVAd9nbp-8ORJ4pKQ&s=09" target="_blank">
-    <img alt="Twitter: https:\/\/twitter.com\/vij4y1?t=JfLJABVAd9nbp-8ORJ4pKQ&s=09" src="https://img.shields.io/twitter/follow/https:\/\/twitter.com\/vij4y1?t=JfLJABVAd9nbp-8ORJ4pKQ&s=09.svg?style=social" />
+ src="https://img.shields.io/twitter/follow/https:\/\/twitter.com\/vij4y1?t=JfLJABVAd9nbp-8ORJ4pKQ&s=09.svg?style=social" />
   </a>
 </p>
 
