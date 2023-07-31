@@ -47,7 +47,7 @@ def get_messages():
     conn = None
     try:
         conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=x9qbiYEdpMc8FGnVUdpcb4DaO9dYzV19 host=dpg-ceetjc4gqg4b3h9qv1t0-a")
-        #conn = psycopg2.connect("dbname=covid_motiv user=vijay password=ryzen host=localhost")
+        #conn = psycopg2.connect("dbname=covid_motiv user=vijay password=***** host=localhost")
         cursor = conn.cursor()
         sql = "select * from quotes where msg_status = 'approved';"
         cursor.execute(sql)
