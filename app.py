@@ -54,7 +54,7 @@ def get_messages():
         rows = cursor.fetchall()
         rowarray_list = []
         for row in rows:
-            t = { 'id': row[0], 'message': row[1], 'name':row[5]}
+            t = { 'id': row[0], 'message': row[1], 'name':row[3]}
             rowarray_list.append(t)
         conn.commit()
         cursor.close()
