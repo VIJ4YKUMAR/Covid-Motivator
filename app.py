@@ -21,7 +21,7 @@ def my_app():
     conn = None
     if request.method == 'POST':
         try:
-            conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=x9qbiYEdpMc8FGnVUdpcb4DaO9dYzV19 host=srv-ceet9q4gqg4b3h9pvo60")
+            conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=wuRBKFGrWuC1cDcnWJRxfBYz8yd5J6qI host=dpg-cq2canbv2p9s73eq453g-a")
             #conn = psycopg2.connect("dbname=covid_motiv user=vijay password=ryzen host=localhost")
             data = request.get_json()
             motivational_message = data['message']
@@ -46,7 +46,7 @@ def my_app():
 def get_messages():
     conn = None
     try:
-        conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=x9qbiYEdpMc8FGnVUdpcb4DaO9dYzV19 host=srv-ceet9q4gqg4b3h9pvo60")
+        conn = psycopg2.connect("dbname=motivational_quotes user=vijay password=wuRBKFGrWuC1cDcnWJRxfBYz8yd5J6qI host=dpg-cq2canbv2p9s73eq453g-a")
         #conn = psycopg2.connect("dbname=covid_motiv user=vijay password=ryzen host=localhost")
         cursor = conn.cursor()
         sql = "select * from quotes where msg_status = 'approved';"
